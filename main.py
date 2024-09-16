@@ -33,14 +33,14 @@ def main():
         screen.fill("black")
         for obj in updatable:
             obj.update(dt)
-        for obj in asteroids:
-            if obj.collides_with(p):
+        for asteroid in asteroids:
+            if asteroid.collides_with(p):
                 print("Game over!")
                 return
             for shot in shots:
-                if shot.collides_with(obj):
+                if shot.collides_with(asteroid):
                     shot.kill()
-                    obj.kill()
+                    asteroid.split()
 
         for obj in drawable:
             obj.draw(screen)
